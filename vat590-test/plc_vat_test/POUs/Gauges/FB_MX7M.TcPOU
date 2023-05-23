@@ -22,9 +22,7 @@ VAR
 	rPress : REAL; //Calculated pressure
 	tGaugeTurnOnTmr : TON;
 	iTermBits : UINT := 30518 ; //The terminal's maximum value in bits
-	bInit : BOOL := TRUE;
-	rVIntPart : INT;
-	rVFracPart : REAL;
+
 	(*IOs to be linked*)
 	//Controls and I/Os
 	i_iPRESS_R AT %I* : INT; //Pressure reading // 'TcLinkTo' (EL3174-0002 or EP3174-0002)^Input
@@ -84,31 +82,6 @@ ELSE
 	IG.rPRESS := cDefaultP;
 END_IF
 
-
-(*
-IF rV <= vDisconnected AND IG.q_xHV_DIS THEN
-	IG.eState := ValidLo;
-	IG.rPRESS := rMinPressure;
-ELSIF rV <= vDisconnected AND NOT IG.q_xHV_DIS THEN
-	IG.eState := GaugeDisconnected;
-	IG.rPRESS := cDefaultPressure;
-ELSIF rV > vDisconnected AND rV <= vGaugeMax AND IG.q_xHV_DIS THEN
-	IG.eState := Valid;
-	IG.rPRESS := rPRESS;
-ELSIF rV > vGaugeMax AND rV < (vGaugeOff - rDeadband) AND IG.q_xHV_DIS THEN
-	IG.eState := OoR;
-	IG.rPRESS := cDefaultPressure;
-ELSIF rV > (vGaugeOff - rDeadband) AND IG.q_xHV_DIS THEN
-	IG.eState := Starting;
-	IG.rPRESS := cDefaultPressure;
-ELSIF rV > vGaugeOff - rDeadband AND NOT IG.q_xHV_DIS THEN
-	IG.eState := Off;
-	IG.rPRESS := cDefaultPressure;
-ELSE
-	IG.eState := PressInvalid;
-	IG.rPRESS := cDefaultPressure;
-END_IF
-*)
 
 (* Ion Gauge Protection Functions *)
 (* If the PG pressure is greater than the VG.PRO_SP then the gauge is disabled *)
