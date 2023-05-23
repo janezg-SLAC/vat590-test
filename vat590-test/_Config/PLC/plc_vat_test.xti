@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CNestedPlcProjDef">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
+			<BitSize>48</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+			<Format>
+				<Printf>%d.%d.%d.%d.%d.%d</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+				<Parameter>[2]</Parameter>
+				<Parameter>[3]</Parameter>
+				<Parameter>[4]</Parameter>
+				<Parameter>[5]</Parameter>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{F243A4C3-4000-48E4-BEFF-15E54D2B99C8}" Namespace="Tc2_System" AutoDeleteType="true">T_AmsNetIdArr</Name>
+			<Comment>
+				<![CDATA[ TwinCAT AMS netID address bytes. ]]>
+			</Comment>
+			<BitSize>48</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</BaseType>
+		</DataType>
+		<DataType>
+			<Name GUID="{F3BAE8BC-62A1-4248-B447-C73D09D76119}" Namespace="Tc2_EtherCAT" AutoDeleteType="true">ST_PlcDriveRef</Name>
+			<BitSize>80</BitSize>
+			<SubItem>
+				<Name>aNetId</Name>
+				<Type GUID="{F243A4C3-4000-48E4-BEFF-15E54D2B99C8}" Namespace="Tc2_System">T_AmsNetIdArr</Type>
+				<Comment>
+					<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+				</Comment>
+				<BitSize>48</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nSlaveAddr</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<Comment>
+					<![CDATA[ Address of the slave device.]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDriveNo</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<Comment>
+					<![CDATA[ Drive number]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDriveType</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<Comment>
+					<![CDATA[ Drive type]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{971B1626-6BEC-4BC8-81E4-FC5CDA382F4F}" AutoDeleteType="true">E_ControlMode</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text>
+					<![CDATA[Init]]>
+				</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[Synch]]>
+				</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[ManualControl]]>
+				</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[CloseValve]]>
+				</Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[OpenValve]]>
+				</Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[PressureControl]]>
+				</Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[HoldValve]]>
+				</Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[LearnProcedure]]>
+				</Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[InterlockOpen]]>
+				</Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[InterlockClose]]>
+				</Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[MaintenanceOpen]]>
+				</Text>
+				<Enum>10</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[MaintenanceClose]]>
+				</Text>
+				<Enum>11</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[PowerFailure]]>
+				</Text>
+				<Enum>12</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[Safety]]>
+				</Text>
+				<Enum>13</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[FatalError]]>
+				</Text>
+				<Enum>14</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{D68A0406-D7F3-43AD-A419-E442B9B4616F}" AutoDeleteType="true">E_FatalErrors</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<EnumInfo>
+				<Text>
+					<![CDATA[NO_FATAL_ERROR]]>
+				</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[NoStopDetectedSynch]]>
+				</Text>
+				<Enum>20</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[ValveBlockedSynch]]>
+				</Text>
+				<Enum>21</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[ValveBlocked]]>
+				</Text>
+				<Enum>22</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[StepLossSynch]]>
+				</Text>
+				<Enum>25</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[MotorDriverFault]]>
+				</Text>
+				<Enum>40</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{E51E15F0-FD42-44B9-914A-DF8C9ED41CB1}" AutoDeleteType="true">ST_GeneralStatus</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Bit0FieldBusDatavalid</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit1ZeroExecuted</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit2PingPongRxBit</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit3PressureSimulation</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit4PressureSPReached</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit5Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit6Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit7AccessModeBit0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit8AccessModeBit1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit9WarningsActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit10Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit11Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit12Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit13Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit14Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit15Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{31746E3A-66F7-4782-83C3-3889C0EBAAB1}" AutoDeleteType="true">ST_GeneralWarnings</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Bit0ServiceRequest</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit1Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit2Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit3PowerFailureBattery</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit4Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit5Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit6Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit7Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit8Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit9Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit10SensMeasUnitFault</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit11Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit12Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit13Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit14Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit15Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{9C08F119-52B7-4532-8E13-ACA85D9831A2}" AutoDeleteType="true">ST_ExtendedWarnings</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Bit0RemoteControlNotPossible</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit1ControlModeSPNotAllowed</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit2ZeroDisabled</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit3PFODeactivated</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit4Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit5PressureSPOutOfRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit6PositionSPOutOfRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit7Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit8Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit9Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit10CtrlSPOutOfRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit11GeneralCtrlSPOutOfRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit12ProcDataSettingsNotvalid</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit13Reserved5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit14Reserved6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit15Reserved7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{3F27DAAF-AC9C-4F6F-A118-2311D5B130EF}" AutoDeleteType="true">E_ControlModeSP</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text>
+					<![CDATA[ManualControl]]>
+				</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[CloseValve]]>
+				</Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[OpenValve]]>
+				</Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[PressureControl]]>
+				</Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[HoldValve]]>
+				</Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[LearnProcedure]]>
+				</Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{85928B10-CA6E-412B-9B38-DC732F3A1B28}" AutoDeleteType="true">ST_GeneralControlSP</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Bit0ExecuteZero</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit1Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit2PingPongTxBit</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit3Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit4AccessMode</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit5Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit6Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit7Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit8Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit9Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit10Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit11Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit12Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit13Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit14Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Bit15Reserved</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+	</DataTypes>
+	<Project GUID="{EC190F1A-C3A4-4BF5-B509-4778146793DB}" Name="plc_vat_test" PrjFilePath="..\..\plc_vat_test\plc_vat_test.plcproj" TmcFilePath="..\..\plc_vat_test\plc_vat_test.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="1" TmcPath="plc_vat_test\plc_vat_test.tmc">
+			<Name>plc_vat_test Instance</Name>
+			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="1">
+				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
+					<Comment>
+						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
+					</Comment>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
+				<Var>
+					<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
+					<Comment>
+						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
+					</Comment>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_stVat590PlcDriveRef</Name>
+					<Comment>
+						<![CDATA[CoE Interface
+Link this to your VAT590 reference variables under InfoData.]]>
+					</Comment>
+					<Type GUID="{F3BAE8BC-62A1-4248-B447-C73D09D76119}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
+					<SubVar>
+						<Name>aNetId</Name>
+						<Comment>
+							<![CDATA[ AmsNetId of the EtherCAT master device.]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nSlaveAddr</Name>
+						<Comment>
+							<![CDATA[ Address of the slave device.]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nDriveNo</Name>
+						<Comment>
+							<![CDATA[ Drive number]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nDriveType</Name>
+						<Comment>
+							<![CDATA[ Drive type]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_nRawPosition</Name>
+					<Comment>
+						<![CDATA[ Position readback from the valve]]>
+					</Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_nRawPressure</Name>
+					<Comment>
+						<![CDATA[ Pressure readback from the valve]]>
+					</Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_eControlMode</Name>
+					<Comment>
+						<![CDATA[ Valve control mode readback]]>
+					</Comment>
+					<Type GUID="{971B1626-6BEC-4BC8-81E4-FC5CDA382F4F}">E_ControlMode</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_eFatalError</Name>
+					<Comment>
+						<![CDATA[ Valve Fatal Errors readback]]>
+					</Comment>
+					<Type GUID="{D68A0406-D7F3-43AD-A419-E442B9B4616F}">E_FatalErrors</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_stGenStatus</Name>
+					<Comment>
+						<![CDATA[ Valve General Status readback]]>
+					</Comment>
+					<Type GUID="{E51E15F0-FD42-44B9-914A-DF8C9ED41CB1}">ST_GeneralStatus</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_stGenWarnings</Name>
+					<Comment>
+						<![CDATA[ Valve General Warnings readback]]>
+					</Comment>
+					<Type GUID="{31746E3A-66F7-4782-83C3-3889C0EBAAB1}">ST_GeneralWarnings</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_stExtnWarnings</Name>
+					<Comment>
+						<![CDATA[ Valve Extended Warnings readback]]>
+					</Comment>
+					<Type GUID="{9C08F119-52B7-4532-8E13-ACA85D9831A2}">ST_ExtendedWarnings</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.i_bValveEthCatStatus</Name>
+					<Comment>
+						<![CDATA[Ethercat Interface Status Check
+Link this to your VAT590 WcState variable under WcState]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMKS500.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMKS500.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMKS500.i_xDisc_Active</Name>
+					<Comment>
+						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[ True when EMI is on  // 'TcLinkTo' (EL1004 or EL1008) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xERR_CH1</Name>
+					<Comment>
+						<![CDATA[ TRUE when NO error is present on assigned channel]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xERR_CH2</Name>
+					<Comment>
+						<![CDATA[ TRUE when NO error is present on assigned channel]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xCH2_SEL</Name>
+					<Comment>
+						<![CDATA[ TRUE when CH2 selected, FALSE when CH1 selected]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMX7M.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[Pressure reading // 'TcLinkTo' (EL3174-0002 or EP3174-0002)^Input]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2">
+				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>MAIN.fbVCN590.o_nRawPositionSP</Name>
+					<Comment>
+						<![CDATA[ Position setpoint]]>
+					</Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.o_nRawPressureSP</Name>
+					<Comment>
+						<![CDATA[ Pressure setpoint]]>
+					</Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.o_eCtrlModeSP</Name>
+					<Comment>
+						<![CDATA[ Valve control mode setpoint]]>
+					</Comment>
+					<Type GUID="{3F27DAAF-AC9C-4F6F-A118-2311D5B130EF}">E_ControlModeSP</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbVCN590.o_stGenCtrlSP</Name>
+					<Comment>
+						<![CDATA[ General Control setpoint]]>
+					</Comment>
+					<Type GUID="{85928B10-CA6E-412B-9B38-DC732F3A1B28}">ST_GeneralControlSP</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMKS500.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.q_xHV_DIS_CH1</Name>
+					<Comment>
+						<![CDATA[ Enable Gauge High Voltage on CH1 when True // 'TcLinkTo' (EL2124) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.q_xHV_DIS_CH2</Name>
+					<Comment>
+						<![CDATA[ Enable Gauge High Voltage on CH2 when True // 'TcLinkTo' (EL2124) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMX7M.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[Enable High Voltage when True // 'TcLinkTo' (EL2624 or EP2624-0002)^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="8">
+				<Name>PlcTask Retains</Name>
+				<Var>
+					<Name>PMPS_GVL.SuccessfulPreemption</Name>
+					<Comment>
+						<![CDATA[ Any time BPTM applies a new BP request which is confirmed]]>
+					</Comment>
+					<Type>UDINT</Type>
+					<InOut>7</InOut>
+				</Var>
+				<Var>
+					<Name>PMPS_GVL.AccumulatedFF</Name>
+					<Comment>
+						<![CDATA[ Any time a FF occurs]]>
+					</Comment>
+					<Type>UDINT</Type>
+					<InOut>7</InOut>
+				</Var>
+				<Var>
+					<Name>PMPS_GVL.BP_jsonDoc</Name>
+					<Type>SJsonValue</Type>
+					<InOut>7</InOut>
+				</Var>
+			</Vars>
+			<UnrestoredVarLinks ImportTime="2022-02-21T23:34:36">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^VCN_1_VAT590">
+						<Link VarA="MAIN.fbVCN590.q_iControlModeSP" TypeA="USINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000002}" VarB="DO RxPDO-Map^Control mode setpoint" RestoreInfo="TypeMismatch" OldTypeA="USINT" OldGuidA="{18071995-0000-0000-0000-000000000002}" NewTypeA="E_ControlModeSP" NewGuidA="{12B54529-7674-4FCE-B52C-DC093F4A2166}"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-02-22T12:18:30">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^VCN_1_VAT590">
+						<Link VarA="MAIN.fbVCN590.i_iRawPressureSensor" TypeA="DINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DI TxPDO-Map^Pressure sensor 1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-02-28T22:54:20">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^VCN_1_VAT590">
+						<Link VarA="MAIN.fbVCN590.i_stExtendedWarnings" TypeA="ST_ExtendedWarnings" InOutA="0" GuidA="{1449E9A3-CB26-4CAF-849C-3AC8ADFEEC89}" VarB="DI TxPDO-Map^Extended warnings" Size="16" RestoreInfo="TypeMismatch" OldTypeA="ST_ExtendedWarnings" OldGuidA="{1449E9A3-CB26-4CAF-849C-3AC8ADFEEC89}" NewTypeA="ST_ExtendedWarning" NewGuidA="{409B4C23-E8BB-4DEC-B188-CAEAA2F8A7BB}"/>
+						<Link VarA="MAIN.fbVCN590.i_stGeneralWarnings" TypeA="ST_GeneralWarnings" InOutA="0" GuidA="{49F9FF90-6A62-4786-A7C9-B4A8B7F13918}" VarB="DI TxPDO-Map^General warnings" Size="16" RestoreInfo="TypeMismatch" OldTypeA="ST_GeneralWarnings" OldGuidA="{49F9FF90-6A62-4786-A7C9-B4A8B7F13918}" NewTypeA="ST_GeneralWarning" NewGuidA="{F5258F82-B6FE-4354-B52E-7CE7258E686D}"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-03-24T21:02:28">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^VCN_1_VAT590">
+						<Link VarA="MAIN.fbVCN590.o_eCtrlModeSP" TypeA="E_ControlModeSP" InOutA="1" GuidA="{8663EC01-B508-4EF9-8E4E-C6F36A035D95}" VarB="DO RxPDO-Map^Control mode setpoint" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.o_nRawPositionSP" TypeA="DINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DO RxPDO-Map^Position setpoint" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.o_nRawPressureSP" TypeA="DINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DO RxPDO-Map^Pressure setpoint" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.o_stGenCtrlSP" TypeA="ST_GeneralControlSP" InOutA="1" GuidA="{BF75A943-C9FE-4895-B56D-7B1A4C063819}" VarB="DO RxPDO-Map^General control setpoint" RestoreInfo="BNotFound"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^VCN_1_VAT590">
+						<Link VarA="MAIN.fbVCN590.fbCoeInterface.stPlcDriveRef^aNetId" TypeA="Tc2_System.T_AmsNetIdArr" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{35AB967D-7913-4933-A3F6-38B4994FB6EF}" VarB="InfoData^AdsAddr^netId" RestoreInfo="ANotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_eControlMode" TypeA="E_ControlMode" InOutA="0" GuidA="{CE406B42-28FD-482D-A2C8-1E943E55DDAF}" VarB="DI TxPDO-Map^Control mode" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_eFatalError" TypeA="E_FatalErrors" InOutA="0" GuidA="{040B7F6C-2002-4E54-B003-41323BE2BF15}" VarB="DI TxPDO-Map^Fatal error" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_nRawPosition" TypeA="DINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DI TxPDO-Map^Position" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_nRawPressure" TypeA="DINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DI TxPDO-Map^Pressure" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_stExtnWarnings" TypeA="ST_ExtendedWarnings" InOutA="0" GuidA="{7FB5B535-76CC-48B1-A99C-444F69281844}" VarB="DI TxPDO-Map^Extended warnings" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_stGenStatus" TypeA="ST_GeneralStatus" InOutA="0" GuidA="{2298E39F-23E6-4819-8C76-01CC4186026A}" VarB="DI TxPDO-Map^General status" RestoreInfo="BNotFound"/>
+						<Link VarA="MAIN.fbVCN590.i_stGenWarnings" TypeA="ST_GeneralWarnings" InOutA="0" GuidA="{403AAF69-85A5-4C28-8C91-7EB5DA7D7D6F}" VarB="DI TxPDO-Map^General warnings" RestoreInfo="BNotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-03-25T10:42:31">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL7041)">
+						<Link VarA="MAIN.fbCoeRead.stPlcDriveRef^aNetId" TypeA="Tc2_System.T_AmsNetIdArr" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{35AB967D-7913-4933-A3F6-38B4994FB6EF}" VarB="InfoData^AdsAddr^netId" RestoreInfo="ANotFound"/>
+						<Link VarA="MAIN.fbCoeRead.stPlcDriveRef^nSlaveAddr" TypeA="UINT" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^AdsAddr^port" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-04-08T16:23:29">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL7041)">
+						<Link VarA="MAIN.counterValue" TypeA="WORD" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000004}" VarB="ENC Status compact^Counter value" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2022-04-09T20:37:08">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 11 (EL3174-0002)">
+						<Link VarA="MAIN.fbTest.stVat590PlcDriveRef^aNetId" TypeA="Tc2_System.T_AmsNetIdArr" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{C7DAFAB5-364C-4F20-B9AE-B3EF55F017B0}" VarB="InfoData^AdsAddr^netId" RestoreInfo="ANotFound"/>
+						<Link VarA="MAIN.fbTest.stVat590PlcDriveRef^nSlaveAddr" TypeA="UINT" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^AdsAddr^port" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2023-02-03T11:59:04">
+				<OwnerA Name="InputDst" Prefix="TIPC^plc_vat_test^plc_vat_test Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL7041)">
+						<Link VarA="MAIN.nCounterValue" TypeA="WORD" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000004}" VarB="ENC Status compact^Counter value" RestoreInfo="ANotFound"/>
+						<Link VarA="MAIN.stVat590PlcDriveRef^aNetId" TypeA="Tc2_System.T_AmsNetIdArr" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{C7DAFAB5-364C-4F20-B9AE-B3EF55F017B0}" VarB="InfoData^AdsAddr^netId" RestoreInfo="ANotFound"/>
+						<Link VarA="MAIN.stVat590PlcDriveRef^nSlaveAddr" TypeA="UINT" InOutA="0" ParentTypeA="ST_PlcDriveRef" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^AdsAddr^port" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<TaskPouOids>
+				<TaskPouOid Prio="20" OTCID="#x08502001"/>
+			</TaskPouOids>
+		</Instance>
+	</Project>
+	<Mappings>
+		<OwnerA Name="plc_vat_test Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL2624)">
+				<Link VarA="PlcTask Outputs^MAIN.fbIE514.q_xHV_DIS_CH1" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbIE514.q_xHV_DIS_CH2" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbMX7M.q_xHV_DIS" VarB="Channel 3^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL1004)">
+				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xCH2_SEL" VarB="Channel 2^Input"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xERR_CH1" VarB="Channel 3^Input"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xERR_CH2" VarB="Channel 4^Input"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xHV_ON" VarB="Channel 1^Input"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL3174-0002)">
+				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_iPRESS_R" VarB="AI Standard Channel 1^Value"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbMX7M.i_iPRESS_R" VarB="AI Standard Channel 3^Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^VAT590_TEST">
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_bValveEthCatStatus" VarB="WcState^WcState"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_eControlMode" VarB="DI TxPDO-Map^Control mode"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_eFatalError" VarB="DI TxPDO-Map^Fatal error"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_nRawPosition" VarB="DI TxPDO-Map^Position"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_nRawPressure" VarB="DI TxPDO-Map^Pressure"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stExtnWarnings" VarB="DI TxPDO-Map^Extended warnings"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stGenStatus" VarB="DI TxPDO-Map^General status"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stGenWarnings" VarB="DI TxPDO-Map^General warnings"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stVat590PlcDriveRef^aNetId" VarB="InfoData^AdsAddr^netId"/>
+				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stVat590PlcDriveRef^nSlaveAddr" VarB="InfoData^AdsAddr^port"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_eCtrlModeSP" VarB="DO RxPDO-Map^Control mode setpoint"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPositionSP" VarB="DO RxPDO-Map^Position setpoint"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressureSP" VarB="DO RxPDO-Map^Pressure setpoint"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_stGenCtrlSP" VarB="DO RxPDO-Map^General control setpoint"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmItem>
