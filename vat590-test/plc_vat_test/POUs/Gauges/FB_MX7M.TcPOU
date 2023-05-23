@@ -31,13 +31,18 @@ VAR
 	q_xHV_DIS AT %Q* : BOOL; //Enable High Voltage when True // 'TcLinkTo' (EL2624 or EP2624-0002)^Output
 END_VAR
 VAR CONSTANT
-	//Ranges ~1.5 to ~10.1 Vdc (5E-11 to 1E-2)
-	//Must set the analog output scaling to Linear by Decade!!
-	cGaugeMinV : REAL := 1.5;
-	cGaugeMaxV : REAL := 10.1;
+	//Ranges 1.0 to 10.0 Vdc (5E-11 to 1E-2) 1.0V to 1.7V indicates that the pressure is lower then 5E-11
+	//Must set the analog output scaling to logaritmic 2!!
+	cSlope : REAL := 1.0;
+	cBaseV : REAL := 1.0;
+	cBaseP : REAL := 1E-11;
+	cMinP : REAL := 5E-11;
+	cGaugeMinV : REAL := 1.0;
+	cGaugeLowV : REAL := 1.69;
+	cGaugeMaxV : REAL := 10.0;
 	cGaugeStartingV : REAL := 10.5;
-	cDefaultPressure : REAL := 0.0;
-	cDeadband : REAL := 0.1;
+	cDefaultP : REAL := 0.0;
+	cDeadbandV : REAL := 0.1;
 END_VAR
 VAR PERSISTENT
 	bWasOn : BOOL;
@@ -51,31 +56,32 @@ IF (iTermBits = 0) THEN iTermBits := 30518; END_IF
 rV := 10*INT_TO_REAL(i_iPRESS_R)/iTermBits;
 
 (*Calculate pressure*)
-rVIntPart := TRUNC_INT(rV); // Get the integer part
-rVFracPart := rV - INT_TO_REAL(rVIntPart); // Get the fractional part
-rPRESS := rVFracPart*LREAL_TO_REAL(EXPT(10,(rVIntPart-11)));
+rPRESS := LREAL_TO_REAL(EXPT(10,((rV-cBaseV)/cSlope+LOG(cBaseP))));
 
 (*Set Guage State based on the Analog voltage*)
 IF IG.q_xHV_DIS THEN
-    IF rV >= cGaugeMinV AND rV <= cGaugeMaxV THEN
+    IF rV >= cGaugeLowV AND rV <= cGaugeMaxV THEN
 		IG.eState := Valid;
 	    IG.rPRESS := rPRESS;
-    ELSIF rV > cGaugeStartingV - cDeadband THEN
+    ELSIF rV < cGaugeLowV AND rV >= cGaugeMinV - cDeadbandV THEN
+		IG.eState := Valid;
+	    IG.rPRESS := cMinP;
+    ELSIF rV > cGaugeStartingV - cDeadbandV THEN
 	    IG.eState := Starting;
-	    IG.rPRESS := cDefaultPressure;
-    ELSIF rV < cGaugeMinV - cDeadband THEN
+	    IG.rPRESS := cDefaultP;
+    ELSIF rV < cGaugeMinV - cDeadbandV THEN
 	    IG.eState := GaugeDisconnected;
-	    IG.rPRESS := cDefaultPressure;
-    ELSIF rV > cGaugeMaxV AND rV < cGaugeStartingV - cDeadband THEN
+	    IG.rPRESS := cDefaultP;
+    ELSIF rV > cGaugeMaxV AND rV < cGaugeStartingV - cDeadbandV THEN
 	    IG.eState := OoR;
-	    IG.rPRESS := cDefaultPressure;
+	    IG.rPRESS := cDefaultP;
 	ELSE
 	    IG.eState := PressInvalid;
-	    IG.rPRESS := cDefaultPressure;
+	    IG.rPRESS := cDefaultP;
     END_IF
 ELSE
 	IG.eState := Off;
-	IG.rPRESS := cDefaultPressure;
+	IG.rPRESS := cDefaultP;
 END_IF
 
 
