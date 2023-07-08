@@ -158,7 +158,7 @@ IF (IG.xLog) THEN
 		  END_CASE
       ePrevState := IG.eState;  
 	  END_IF
-END_IF  
+END_IF
 
 ]]></ST>
       </Implementation>

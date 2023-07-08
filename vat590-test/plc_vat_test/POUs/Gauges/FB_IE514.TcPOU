@@ -186,7 +186,7 @@ END_IF
 (* This FB also implements some hysteresis so the gauge doesn't have rapid power cycling while near the turn on boundary *)
 
 //CH1
-IF (PG.rPRESS <= IG_CH1.rPRO_SP) THEN
+IF (PG.rPRESS <= IG_CH1.rPRO_SP) AND PG.xPRESS_OK THEN
 	IG_CH1.q_xHV_DIS := IG_CH1.xHV_SW;
 	IG_CH1.xILKOk := TRUE;
 ELSIF IG_CH1.q_xHV_DIS AND tHvDis_CH1.Q THEN
@@ -201,7 +201,7 @@ ELSE
 END_IF
 
 //CH2
-IF (PG.rPRESS <= IG_CH2.rPRO_SP) THEN
+IF (PG.rPRESS <= IG_CH2.rPRO_SP) AND PG.xPRESS_OK THEN
 	IG_CH2.q_xHV_DIS := IG_CH2.xHV_SW;
 	IG_CH2.xILKOk := TRUE;
 ELSIF IG_CH2.q_xHV_DIS AND tHvDis_CH2.Q THEN

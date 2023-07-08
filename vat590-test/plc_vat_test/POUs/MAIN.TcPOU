@@ -26,10 +26,11 @@ VAR
 	intPart: INT;
     fracPart: REAL;
 	rPressure : REAL := 0;
+	bPressOK : BOOL := TRUE;
 END_VAR	
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[stVG.xPRESS_OK := TRUE;
+      <ST><![CDATA[stVG.xPRESS_OK := bPressOK;
 stVG.rPress := rPiraniPressure;
 fbMKS500.M_SetBits(30518);
 fbMKS500(PG := stVG);
