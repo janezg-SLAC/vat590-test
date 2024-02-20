@@ -684,7 +684,314 @@ record(bi, "GHC:TEST:02:PRESS_OK_RBV") {
   info(archive, "VAL")
 }
 
-record(mbbi, "GCC:TEST:STATE_RBV") {
+record(mbbi, "GCC:TEST:01:STATE_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.eState?")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(SVVL, "7")
+  field(ZRST, "Off")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "OoR")
+  field(THST, "PressInvalid")
+  field(FRST, "Starting")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
+  info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
+  info(archive, "VAL")
+}
+
+record(longin, "GCC:TEST:01:AutoOn_timer_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.iAutoOnTimer")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.iAutoOnTimer?")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(longin, "GCC:TEST:01:PRESS_AI_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.i_iPRESS_R")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.i_iPRESS_R?")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:DISC_ACTIVE_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.i_xDisc_Active")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.i_xDisc_Active?")
+  field(ZNAM, "NO DISC")
+  field(ONAM, "DISC ACTIVE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:HV_ON_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.i_xHV_ON")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.i_xHV_ON?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:HV_DIS_DO_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.q_xHV_DIS")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.q_xHV_DIS?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(ai, "GCC:TEST:01:SP_HYS_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.rHYS_PR")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.rHYS_PR?")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ao, "GCC:TEST:01:SP_HYS") {
+  field(DESC, "MAIN.fbMKS500.IG.rHYS_PR")
+  field(PINI, "1")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.rHYS_PR=")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "GCC:TEST:01:PRESS_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.rPRESS")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.rPRESS?")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "GCC:TEST:01:PRO_SP_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.rPRO_SP")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.rPRO_SP?")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ao, "GCC:TEST:01:PRO_SP") {
+  field(DESC, "MAIN.fbMKS500.IG.rPRO_SP")
+  field(PINI, "1")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.rPRO_SP=")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "GCC:TEST:01:VAC_SP_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.rVAC_SP")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.rVAC_SP?")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ao, "GCC:TEST:01:VAC_SP") {
+  field(DESC, "MAIN.fbMKS500.IG.rVAC_SP")
+  field(PINI, "1")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.rVAC_SP=")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
+  info(autosaveFields, "DESC VAL")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:AT_VAC_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xAT_VAC")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xAT_VAC?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:Auto_On_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xAutoOn")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xAutoOn?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "GCC:TEST:01:Auto_On") {
+  field(DESC, "MAIN.fbMKS500.IG.xAutoOn")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.xAutoOn=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:HV_SW_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xHV_SW")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xHV_SW?")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "GCC:TEST:01:HV_SW") {
+  field(DESC, "MAIN.fbMKS500.IG.xHV_SW")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.xHV_SW=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:ILK_OK_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xILKOk")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xILKOk?")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:LOGGER_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xLog")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xLog?")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "GCC:TEST:01:LOGGER") {
+  field(DESC, "MAIN.fbMKS500.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbMKS500.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "GCC:TEST:01:PRESS_OK_RBV") {
+  field(DESC, "MAIN.fbMKS500.IG.xPRESS_OK")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMKS500.IG.xPRESS_OK?")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(mbbi, "GCC:TEST:02:STATE_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.eState")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -711,7 +1018,7 @@ record(mbbi, "GCC:TEST:STATE_RBV") {
   info(archive, "VAL")
 }
 
-record(longin, "GCC:TEST:AutoOn_timer_RBV") {
+record(longin, "GCC:TEST:02:AutoOn_timer_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.iAutoOnTimer")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -722,7 +1029,7 @@ record(longin, "GCC:TEST:AutoOn_timer_RBV") {
   info(archive, "VAL")
 }
 
-record(longin, "GCC:TEST:PRESS_AI_RBV") {
+record(longin, "GCC:TEST:02:PRESS_AI_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.i_iPRESS_R")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -733,7 +1040,7 @@ record(longin, "GCC:TEST:PRESS_AI_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:DISC_ACTIVE_RBV") {
+record(bi, "GCC:TEST:02:DISC_ACTIVE_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.i_xDisc_Active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -746,7 +1053,7 @@ record(bi, "GCC:TEST:DISC_ACTIVE_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:HV_ON_RBV") {
+record(bi, "GCC:TEST:02:HV_ON_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.i_xHV_ON")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -759,7 +1066,7 @@ record(bi, "GCC:TEST:HV_ON_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:HV_DIS_DO_RBV") {
+record(bi, "GCC:TEST:02:HV_DIS_DO_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.q_xHV_DIS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -772,7 +1079,7 @@ record(bi, "GCC:TEST:HV_DIS_DO_RBV") {
   info(archive, "VAL")
 }
 
-record(ai, "GCC:TEST:SP_HYS_RBV") {
+record(ai, "GCC:TEST:02:SP_HYS_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.rHYS_PR")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -788,7 +1095,7 @@ record(ai, "GCC:TEST:SP_HYS_RBV") {
   info(archive, "VAL")
 }
 
-record(ao, "GCC:TEST:SP_HYS") {
+record(ao, "GCC:TEST:02:SP_HYS") {
   field(DESC, "MAIN.fbMX7M.IG.rHYS_PR")
   field(PINI, "1")
   field(DTYP, "asynFloat64")
@@ -803,7 +1110,7 @@ record(ao, "GCC:TEST:SP_HYS") {
   info(archive, "VAL")
 }
 
-record(ai, "GCC:TEST:PRESS_RBV") {
+record(ai, "GCC:TEST:02:PRESS_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.rPRESS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -818,7 +1125,7 @@ record(ai, "GCC:TEST:PRESS_RBV") {
   info(archive, "VAL")
 }
 
-record(ai, "GCC:TEST:PRO_SP_RBV") {
+record(ai, "GCC:TEST:02:PRO_SP_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.rPRO_SP")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -834,7 +1141,7 @@ record(ai, "GCC:TEST:PRO_SP_RBV") {
   info(archive, "VAL")
 }
 
-record(ao, "GCC:TEST:PRO_SP") {
+record(ao, "GCC:TEST:02:PRO_SP") {
   field(DESC, "MAIN.fbMX7M.IG.rPRO_SP")
   field(PINI, "1")
   field(DTYP, "asynFloat64")
@@ -849,7 +1156,7 @@ record(ao, "GCC:TEST:PRO_SP") {
   info(archive, "VAL")
 }
 
-record(ai, "GCC:TEST:VAC_SP_RBV") {
+record(ai, "GCC:TEST:02:VAC_SP_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.rVAC_SP")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -865,7 +1172,7 @@ record(ai, "GCC:TEST:VAC_SP_RBV") {
   info(archive, "VAL")
 }
 
-record(ao, "GCC:TEST:VAC_SP") {
+record(ao, "GCC:TEST:02:VAC_SP") {
   field(DESC, "MAIN.fbMX7M.IG.rVAC_SP")
   field(PINI, "1")
   field(DTYP, "asynFloat64")
@@ -880,7 +1187,7 @@ record(ao, "GCC:TEST:VAC_SP") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:AT_VAC_RBV") {
+record(bi, "GCC:TEST:02:AT_VAC_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xAT_VAC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -893,7 +1200,7 @@ record(bi, "GCC:TEST:AT_VAC_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:Auto_On_RBV") {
+record(bi, "GCC:TEST:02:Auto_On_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xAutoOn")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -906,7 +1213,7 @@ record(bi, "GCC:TEST:Auto_On_RBV") {
   info(archive, "VAL")
 }
 
-record(bo, "GCC:TEST:Auto_On") {
+record(bo, "GCC:TEST:02:Auto_On") {
   field(DESC, "MAIN.fbMX7M.IG.xAutoOn")
   field(DTYP, "asynInt32")
   field(UDFS, "0")
@@ -917,7 +1224,7 @@ record(bo, "GCC:TEST:Auto_On") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:HV_SW_RBV") {
+record(bi, "GCC:TEST:02:HV_SW_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xHV_SW")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -930,7 +1237,7 @@ record(bi, "GCC:TEST:HV_SW_RBV") {
   info(archive, "VAL")
 }
 
-record(bo, "GCC:TEST:HV_SW") {
+record(bo, "GCC:TEST:02:HV_SW") {
   field(DESC, "MAIN.fbMX7M.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(UDFS, "0")
@@ -941,7 +1248,7 @@ record(bo, "GCC:TEST:HV_SW") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:ILK_OK_RBV") {
+record(bi, "GCC:TEST:02:ILK_OK_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xILKOk")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -954,7 +1261,7 @@ record(bi, "GCC:TEST:ILK_OK_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:LOGGER_RBV") {
+record(bi, "GCC:TEST:02:LOGGER_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xLog")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -967,7 +1274,7 @@ record(bi, "GCC:TEST:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
-record(bo, "GCC:TEST:LOGGER") {
+record(bo, "GCC:TEST:02:LOGGER") {
   field(DESC, "MAIN.fbMX7M.IG.xLog")
   field(DTYP, "asynInt32")
   field(UDFS, "0")
@@ -978,7 +1285,7 @@ record(bo, "GCC:TEST:LOGGER") {
   info(archive, "VAL")
 }
 
-record(bi, "GCC:TEST:PRESS_OK_RBV") {
+record(bi, "GCC:TEST:02:PRESS_OK_RBV") {
   field(DESC, "MAIN.fbMX7M.IG.xPRESS_OK")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1713,6 +2020,62 @@ record(ao, "VCN:TEST:01:COE_PARAM:PGAIN_SP") {
   field(PREC, "3")
   field(DRVH, "100.0")
   field(DRVL, "0.001")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "VCN:TEST:01:COE_PARAM:POSITION_LIMIT_OPN_RBV") {
+  # MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpen
+  field(DESC, "MAIN.fbVCN590.stVcnV...PositionLimitOpen")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpen?")
+  field(PREC, "3")
+  field(EGU, "%")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ao, "VCN:TEST:01:COE_PARAM:POSITION_LIMIT_OPN") {
+  # MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpen
+  field(DESC, "MAIN.fbVCN590.stVcnV...PositionLimitOpen")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpen=")
+  field(PREC, "3")
+  field(EGU, "%")
+  field(DRVH, "100.0")
+  field(DRVL, "0.0")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "VCN:TEST:01:COE_PARAM:POSITION_LIMIT_OPN_CTRL_RBV") {
+  # MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpenControl
+  field(DESC, "MAIN.fbVCN590.stVcnV...nLimitOpenControl")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpenControl?")
+  field(PREC, "3")
+  field(EGU, "%")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ao, "VCN:TEST:01:COE_PARAM:POSITION_LIMIT_OPN_CTRL") {
+  # MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpenControl
+  field(DESC, "MAIN.fbVCN590.stVcnV...nLimitOpenControl")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbVCN590.stVcnVat590.stCoeParameters.fPositionLimitOpenControl=")
+  field(PREC, "3")
+  field(EGU, "%")
+  field(DRVH, "100.0")
+  field(DRVL, "0.0")
   info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
   info(archive, "VAL")
 }
