@@ -22,51 +22,6 @@
     <Compile Include="DUTs\ST_CoeParamsTest.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\E_ControlMode.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\E_ControlModeSP.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\E_FatalErrors.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\ST_ExtendedWarnings.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\ST_GeneralControlSP.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\ST_GeneralStatus.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\EtherCAT Interface\ST_GeneralWarnings.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\E_VAT590_PID_CTRL.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\E_VAT590_PressureSensor.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\E_VCN_VAT590.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\E_VAT590_AccessMode.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\ST_CoEIndSub.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\ST_VAT590_COE.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\ST_VCN_VAT590.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\VAT590\ST_VAT590_STATUS.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="GVLs\GVL_IO.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -83,20 +38,15 @@
     <Compile Include="POUs\Gauges\FB_IE514.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Gauges\FB_MX7M.TcPOU">
+    <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Valves\FB_VCN_VAT590.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
-    <Folder Include="DUTs\VAT590" />
-    <Folder Include="DUTs\VAT590\EtherCAT Interface" />
     <Folder Include="GVLs" />
     <Folder Include="POUs\CoE" />
     <Folder Include="POUs\Gauges" />
@@ -139,7 +89,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="LCLS Vacuum,newest,SLAC - LCLS">
+    <LibraryReference Include="LCLS Vacuum,2.3.3,SLAC - LCLS">
       <Namespace>LCLS_Vacuum</Namespace>
     </LibraryReference>
   </ItemGroup>

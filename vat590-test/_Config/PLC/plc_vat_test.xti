@@ -68,7 +68,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{971B1626-6BEC-4BC8-81E4-FC5CDA382F4F}" AutoDeleteType="true">E_ControlMode</Name>
+			<Name GUID="{07058FF8-A37C-4EB4-B6CD-35B94EA829F3}" Namespace="LCLS_Vacuum" AutoDeleteType="true">E_ControlMode</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
 			<EnumInfo>
@@ -163,7 +163,7 @@
 			</EnumInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{D68A0406-D7F3-43AD-A419-E442B9B4616F}" AutoDeleteType="true">E_FatalErrors</Name>
+			<Name GUID="{D28FD4A4-B44E-48A1-9540-3149527584AD}" Namespace="LCLS_Vacuum" AutoDeleteType="true">E_FatalErrors</Name>
 			<BitSize>16</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
 			<EnumInfo>
@@ -204,7 +204,7 @@
 			</EnumInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{E51E15F0-FD42-44B9-914A-DF8C9ED41CB1}" AutoDeleteType="true">ST_GeneralStatus</Name>
+			<Name GUID="{E64B2D84-8989-4616-A55E-2F58BB843FB8}" Namespace="LCLS_Vacuum" AutoDeleteType="true">ST_GeneralStatus</Name>
 			<BitSize>16</BitSize>
 			<SubItem>
 				<Name>Bit0FieldBusDatavalid</Name>
@@ -304,7 +304,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{31746E3A-66F7-4782-83C3-3889C0EBAAB1}" AutoDeleteType="true">ST_GeneralWarnings</Name>
+			<Name GUID="{D5C4B3E1-E7D7-486C-84E2-E87F3245FFBF}" Namespace="LCLS_Vacuum" AutoDeleteType="true">ST_GeneralWarnings</Name>
 			<BitSize>16</BitSize>
 			<SubItem>
 				<Name>Bit0ServiceRequest</Name>
@@ -404,7 +404,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{9C08F119-52B7-4532-8E13-ACA85D9831A2}" AutoDeleteType="true">ST_ExtendedWarnings</Name>
+			<Name GUID="{60B83F12-1C9F-4706-A6A9-CEC39E6903C2}" Namespace="LCLS_Vacuum" AutoDeleteType="true">ST_ExtendedWarnings</Name>
 			<BitSize>16</BitSize>
 			<SubItem>
 				<Name>Bit0RemoteControlNotPossible</Name>
@@ -504,7 +504,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{3F27DAAF-AC9C-4F6F-A118-2311D5B130EF}" AutoDeleteType="true">E_ControlModeSP</Name>
+			<Name GUID="{A4A2A16A-664E-43E9-A760-E480248C888A}" Namespace="LCLS_Vacuum" AutoDeleteType="true">E_ControlModeSP</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
 			<EnumInfo>
@@ -545,7 +545,7 @@
 			</EnumInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{85928B10-CA6E-412B-9B38-DC732F3A1B28}" AutoDeleteType="true">ST_GeneralControlSP</Name>
+			<Name GUID="{5B505FB7-9881-43B4-BCB9-F99E591CAF0A}" Namespace="LCLS_Vacuum" AutoDeleteType="true">ST_GeneralControlSP</Name>
 			<BitSize>16</BitSize>
 			<SubItem>
 				<Name>Bit0ExecuteZero</Name>
@@ -652,24 +652,12 @@
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
-					<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
-					<Comment>
-						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
-					</Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
-					<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
-					<Comment>
-						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
-					</Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
 					<Name>MAIN.fbVCN590.i_stVat590PlcDriveRef</Name>
 					<Comment>
 						<![CDATA[CoE Interface
-Link this to your VAT590 reference variables under InfoData.]]>
+Link this to your VAT590 reference variables under InfoData.
+Connect i_stVat590PlcDriveRef.aNetId to the VAT590 Valve InfoData^AdsAddr^netId
+Connect i_stVat590PlcDriveRef.nSlaveAddr to the VAT590 Valve InfoData^AdsAddr^port]]>
 					</Comment>
 					<Type GUID="{F3BAE8BC-62A1-4248-B447-C73D09D76119}" Namespace="Tc2_EtherCAT">ST_PlcDriveRef</Type>
 					<SubVar>
@@ -716,35 +704,35 @@ Link this to your VAT590 reference variables under InfoData.]]>
 					<Comment>
 						<![CDATA[ Valve control mode readback]]>
 					</Comment>
-					<Type GUID="{971B1626-6BEC-4BC8-81E4-FC5CDA382F4F}">E_ControlMode</Type>
+					<Type GUID="{07058FF8-A37C-4EB4-B6CD-35B94EA829F3}" Namespace="LCLS_Vacuum">E_ControlMode</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.i_eFatalError</Name>
 					<Comment>
 						<![CDATA[ Valve Fatal Errors readback]]>
 					</Comment>
-					<Type GUID="{D68A0406-D7F3-43AD-A419-E442B9B4616F}">E_FatalErrors</Type>
+					<Type GUID="{D28FD4A4-B44E-48A1-9540-3149527584AD}" Namespace="LCLS_Vacuum">E_FatalErrors</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.i_stGenStatus</Name>
 					<Comment>
 						<![CDATA[ Valve General Status readback]]>
 					</Comment>
-					<Type GUID="{E51E15F0-FD42-44B9-914A-DF8C9ED41CB1}">ST_GeneralStatus</Type>
+					<Type GUID="{E64B2D84-8989-4616-A55E-2F58BB843FB8}" Namespace="LCLS_Vacuum">ST_GeneralStatus</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.i_stGenWarnings</Name>
 					<Comment>
 						<![CDATA[ Valve General Warnings readback]]>
 					</Comment>
-					<Type GUID="{31746E3A-66F7-4782-83C3-3889C0EBAAB1}">ST_GeneralWarnings</Type>
+					<Type GUID="{D5C4B3E1-E7D7-486C-84E2-E87F3245FFBF}" Namespace="LCLS_Vacuum">ST_GeneralWarnings</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.i_stExtnWarnings</Name>
 					<Comment>
 						<![CDATA[ Valve Extended Warnings readback]]>
 					</Comment>
-					<Type GUID="{9C08F119-52B7-4532-8E13-ACA85D9831A2}">ST_ExtendedWarnings</Type>
+					<Type GUID="{60B83F12-1C9F-4706-A6A9-CEC39E6903C2}" Namespace="LCLS_Vacuum">ST_ExtendedWarnings</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.i_bValveEthCatStatus</Name>
@@ -835,18 +823,25 @@ Link this to your VAT590 WcState variable under WcState]]>
 					<Type>DINT</Type>
 				</Var>
 				<Var>
+					<Name>MAIN.fbVCN590.o_nRawPressure</Name>
+					<Comment>
+						<![CDATA[ Raw pressure output, eliminate need for external connection, 0-100000 which coresponds to 0-10V]]>
+					</Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
 					<Name>MAIN.fbVCN590.o_eCtrlModeSP</Name>
 					<Comment>
 						<![CDATA[ Valve control mode setpoint]]>
 					</Comment>
-					<Type GUID="{3F27DAAF-AC9C-4F6F-A118-2311D5B130EF}">E_ControlModeSP</Type>
+					<Type GUID="{A4A2A16A-664E-43E9-A760-E480248C888A}" Namespace="LCLS_Vacuum">E_ControlModeSP</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.o_stGenCtrlSP</Name>
 					<Comment>
 						<![CDATA[ General Control setpoint]]>
 					</Comment>
-					<Type GUID="{85928B10-CA6E-412B-9B38-DC732F3A1B28}">ST_GeneralControlSP</Type>
+					<Type GUID="{5B505FB7-9881-43B4-BCB9-F99E591CAF0A}" Namespace="LCLS_Vacuum">ST_GeneralControlSP</Type>
 				</Var>
 				<Var>
 					<Name>MAIN.fbMKS500.q_xHV_DIS</Name>
@@ -1012,6 +1007,7 @@ Link this to your VAT590 WcState variable under WcState]]>
 				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_stVat590PlcDriveRef^nSlaveAddr" VarB="InfoData^AdsAddr^port"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_eCtrlModeSP" VarB="DO RxPDO-Map^Control mode setpoint"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPositionSP" VarB="DO RxPDO-Map^Position setpoint"/>
+				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressure" VarB="DO RxPDO-Map^External digital pressure sensor 1"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressureSP" VarB="DO RxPDO-Map^Pressure setpoint"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_stGenCtrlSP" VarB="DO RxPDO-Map^General control setpoint"/>
 			</OwnerB>

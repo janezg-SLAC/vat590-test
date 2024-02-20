@@ -8,6 +8,9 @@ VAR
       pv: VCN:TEST:01
     '}
 	fbVCN590 : FB_VCN_VAT590; // Variable leak valve VAT590 function block
+    {attribute 'pytmc' := '
+      pv: GCC:TEST:01
+    '}
 	fbMKS500 : FB_MKS500;
 	
 	stVG : ST_VG;
@@ -17,35 +20,25 @@ VAR
 	fbIE514 : FB_IE514;
 	
     {attribute 'pytmc' := '
-      pv: GCC:TEST
+      pv: GCC:TEST:02
     '}
 	fbMX7M : FB_MX7M;
 	rPiraniPressure : REAL := 1E-4;
-	
-	rRealNumber : REAL := 8.367;
-	intPart: INT;
-    fracPart: REAL;
-	rPressure : REAL := 0;
 	bPressOK : BOOL := TRUE;
 END_VAR	
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[stVG.xPRESS_OK := bPressOK;
 stVG.rPress := rPiraniPressure;
+
 fbMKS500.M_SetBits(30518);
 fbMKS500(PG := stVG);
 
-fbVCN590(bExtIlkOK := TRUE, IG := stVG);
+fbVCN590(bExtIlkOK := TRUE, IG := fbMKS500.IG);
 
-fbIE514(PG := stVG);
+//fbIE514(PG := stVG);
 
-fbMX7M(PG := stVG);
-
-intPart := TRUNC_INT(rRealNumber); // Get the integer part
-fracPart := LREAL_TO_REAL(FRAC(rRealNumber)); // Get the fractional part
-
-rPressure := fracPart * LREAL_TO_REAL(EXPT(10,(intPart-11)));
-]]></ST>
+//fbMX7M(PG := stVG);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
