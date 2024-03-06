@@ -97,8 +97,8 @@ VAR
 	(*Ethercat Interface Status Check*)
 	(*Link this to your VAT590 WcState variable under WcState*)
 	i_bValveEthCatStatus AT %I* : BOOL := TRUE;
-    fBasePress : REAL := 1E-12;
-    rPress : REAL := 1E-11;
+    //fBasePress : REAL := 1E-12;
+    //rPress : REAL := 1E-11;
 END_VAR
 VAR PERSISTENT
     fUpperLimit	: REAL;                // Max position in % that can be requested
@@ -166,12 +166,12 @@ ELSE
 	stVcnVat590.eValveControl := E_VCN_VAT590.CloseValve;
 END_IF
 
-(*Requested Position calculation*)
+(*Position SP calculation*)
 fReqPos := LIMIT(0, fReqPos, fUpperLimit);
 fCalcPosSP := fReqPos * (cOpenPosition-cClosePosition)/100 + cClosePosition;
 fCalcPosSP := LIMIT(cClosePosition, fCalcPosSP, cOpenPosition); //The requested position SP should remain within this range
 
-(*Pressure calculation*)
+(*Pressure SP calculation*)
 //Limit the input from EPICS between upper and lower limit defined for seleceted pressure sensor
 fReqPres := LIMIT(cMinPress, fReqPres, fPresMaxLim);
 //Calcuate pressure setpoint
@@ -179,18 +179,16 @@ fCalcPresSP := cPressRawSlope * LOG(fReqPres/cBasePress) + cPressRawBase;
 fCalcPresSP := LIMIT(cPresSPLowLim, fCalcPresSP, cPresSPUpLim); //The requested pressure SP should remain within this range
 
 //Calculate pressure readback in Torr units
-stVcnVat590.fPressure := LREAL_TO_REAL(EXPT(10,((DINT_TO_REAL(stVcnVat590.nRawPressure)-fBasePress)/cPressRawSlope + LOG(fBasePress))));
+//stVcnVat590.fPressure := LREAL_TO_REAL(EXPT(10,((DINT_TO_REAL(stVcnVat590.nRawPressure)-cBasePress)/cPressRawSlope + LOG(cBasePress))));
 
-//Calculate pressure raw value linked to valve External Digital pressure sensor 1 input
-IF IG.rPRESS > 0 THEN
-//IF rPRESS > 0 THEN
-	fPressRaw := cPressRawSlope * LOG(IG.rPRESS/cBasePress) + cPressRawBase;
+(*Calculated Pressure SP, Pressure readback and PressureRaw output value are 0 if Pressure sensor is not working*)
+//Calculate PressureRaw value linked to the valve External Digital pressure sensor 1 input
+//Pressure information from IG input is liked to stVcnVat590.fPressure
+IF IG.xPRESS_OK THEN
+	stVcnVat590.fPressure := IG.rPRESS;
+    fPressRaw := cPressRawSlope * LOG(IG.rPRESS/cBasePress) + cPressRawBase;
+    //fPressRaw := cPressRawSlope * LOG(rPRESS/cBasePress) + cPressRawBase;
 ELSE
-	fPressRaw := 0;
-END_IF
-
-(*Calculated Pressure SP, Pressure readback and Pressure Raw output value are 0 if Pressure sensor is not working*)
-IF NOT IG.xPRESS_OK THEN
 	fCalcPresSP := 0;
 	stVcnVat590.fPressure := 0;
     fPressRaw := 0;

@@ -989,14 +989,14 @@ Link this to your VAT590 WcState variable under WcState]]>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressureSP" VarB="DO RxPDO-Map^Pressure setpoint"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_stGenCtrlSP" VarB="DO RxPDO-Map^General control setpoint"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1004)">
+				<Link VarA="PlcTask Inputs^MAIN.fbIMG401.i_xHV_ON" VarB="Channel 1^Input"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL3174-0002)">
 				<Link VarA="PlcTask Inputs^MAIN.fbIMG401.i_iPRESS_R" VarB="AI Standard Channel 1^Value"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL2624)">
 				<Link VarA="PlcTask Outputs^MAIN.fbIMG401.q_xHV_DIS" VarB="Channel 1^Output"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1084)">
-				<Link VarA="PlcTask Inputs^MAIN.fbIMG401.i_xHV_ON" VarB="Channel 1^Input"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
