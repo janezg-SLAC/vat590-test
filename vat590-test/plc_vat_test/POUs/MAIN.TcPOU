@@ -11,7 +11,7 @@ VAR
     {attribute 'pytmc' := '
       pv: GCC:TEST:01
     '}
-	fbMKS500 : FB_MKS500;
+	fbIMG401 : FB_IMG401;
 	
 	stVG : ST_VG;
     {attribute 'pytmc' := '
@@ -30,11 +30,13 @@ END_VAR
     <Implementation>
       <ST><![CDATA[stVG.xPRESS_OK := bPressOK;
 stVG.rPress := rPiraniPressure;
+stVG.eState := ValidLo;
+stVG.xAT_VAC := TRUE;
 
-fbMKS500.M_SetBits(30518);
-fbMKS500(PG := stVG);
+fbIMG401.M_SetBits(30518);
+fbIMG401(PG := stVG);
 
-fbVCN590(bExtIlkOK := TRUE, IG := fbMKS500.IG);
+fbVCN590(bExtIlkOK := TRUE, IG := fbIMG401.IG);
 
 //fbIE514(PG := stVG);
 

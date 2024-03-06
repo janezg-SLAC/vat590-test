@@ -652,6 +652,62 @@
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
+					<Name>MAIN.fbIMG401.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIMG401.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1084) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[ True when EMI is on  // 'TcLinkTo' (EL1004 or EL1008) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xERR_CH1</Name>
+					<Comment>
+						<![CDATA[ TRUE when NO error is present on assigned channel]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xERR_CH2</Name>
+					<Comment>
+						<![CDATA[ TRUE when NO error is present on assigned channel]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.i_xCH2_SEL</Name>
+					<Comment>
+						<![CDATA[ TRUE when CH2 selected, FALSE when CH1 selected]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMX7M.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[Pressure reading // 'TcLinkTo' (EL3174-0002 or EP3174-0002)^Input]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>MAIN.fbVCN590.i_stVat590PlcDriveRef</Name>
 					<Comment>
 						<![CDATA[CoE Interface
@@ -742,72 +798,37 @@ Link this to your VAT590 WcState variable under WcState]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
-				<Var>
-					<Name>MAIN.fbMKS500.i_iPRESS_R</Name>
-					<Comment>
-						<![CDATA[ Controls and I/Os]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbMKS500.i_xHV_ON</Name>
-					<Comment>
-						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbMKS500.i_xDisc_Active</Name>
-					<Comment>
-						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.i_iPRESS_R</Name>
-					<Comment>
-						<![CDATA[ Controls and I/Os]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.i_xHV_ON</Name>
-					<Comment>
-						<![CDATA[ True when EMI is on  // 'TcLinkTo' (EL1004 or EL1008) ^Input]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.i_xERR_CH1</Name>
-					<Comment>
-						<![CDATA[ TRUE when NO error is present on assigned channel]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.i_xERR_CH2</Name>
-					<Comment>
-						<![CDATA[ TRUE when NO error is present on assigned channel]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.i_xCH2_SEL</Name>
-					<Comment>
-						<![CDATA[ TRUE when CH2 selected, FALSE when CH1 selected]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbMX7M.i_iPRESS_R</Name>
-					<Comment>
-						<![CDATA[Pressure reading // 'TcLinkTo' (EL3174-0002 or EP3174-0002)^Input]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>MAIN.fbIMG401.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.q_xHV_DIS_CH1</Name>
+					<Comment>
+						<![CDATA[ Enable Gauge High Voltage on CH1 when True // 'TcLinkTo' (EL2124) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbIE514.q_xHV_DIS_CH2</Name>
+					<Comment>
+						<![CDATA[ Enable Gauge High Voltage on CH2 when True // 'TcLinkTo' (EL2124) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>MAIN.fbMX7M.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[Enable High Voltage when True // 'TcLinkTo' (EL2624 or EP2624-0002)^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>MAIN.fbVCN590.o_nRawPositionSP</Name>
 					<Comment>
@@ -842,34 +863,6 @@ Link this to your VAT590 WcState variable under WcState]]>
 						<![CDATA[ General Control setpoint]]>
 					</Comment>
 					<Type GUID="{5B505FB7-9881-43B4-BCB9-F99E591CAF0A}" Namespace="LCLS_Vacuum">ST_GeneralControlSP</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbMKS500.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.q_xHV_DIS_CH1</Name>
-					<Comment>
-						<![CDATA[ Enable Gauge High Voltage on CH1 when True // 'TcLinkTo' (EL2124) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbIE514.q_xHV_DIS_CH2</Name>
-					<Comment>
-						<![CDATA[ Enable Gauge High Voltage on CH2 when True // 'TcLinkTo' (EL2124) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>MAIN.fbMX7M.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[Enable High Voltage when True // 'TcLinkTo' (EL2624 or EP2624-0002)^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
@@ -979,22 +972,7 @@ Link this to your VAT590 WcState variable under WcState]]>
 	</Project>
 	<Mappings>
 		<OwnerA Name="plc_vat_test Instance">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL2624)">
-				<Link VarA="PlcTask Outputs^MAIN.fbIE514.q_xHV_DIS_CH1" VarB="Channel 1^Output"/>
-				<Link VarA="PlcTask Outputs^MAIN.fbIE514.q_xHV_DIS_CH2" VarB="Channel 2^Output"/>
-				<Link VarA="PlcTask Outputs^MAIN.fbMX7M.q_xHV_DIS" VarB="Channel 3^Output"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL1004)">
-				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xCH2_SEL" VarB="Channel 2^Input"/>
-				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xERR_CH1" VarB="Channel 3^Input"/>
-				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xERR_CH2" VarB="Channel 4^Input"/>
-				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_xHV_ON" VarB="Channel 1^Input"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL3174-0002)">
-				<Link VarA="PlcTask Inputs^MAIN.fbIE514.i_iPRESS_R" VarB="AI Standard Channel 1^Value"/>
-				<Link VarA="PlcTask Inputs^MAIN.fbMX7M.i_iPRESS_R" VarB="AI Standard Channel 3^Value"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^VAT590_TEST">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 7 (590)">
 				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_bValveEthCatStatus" VarB="WcState^WcState"/>
 				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_eControlMode" VarB="DI TxPDO-Map^Control mode"/>
 				<Link VarA="PlcTask Inputs^MAIN.fbVCN590.i_eFatalError" VarB="DI TxPDO-Map^Fatal error"/>
@@ -1010,6 +988,15 @@ Link this to your VAT590 WcState variable under WcState]]>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressure" VarB="DO RxPDO-Map^External digital pressure sensor 1"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_nRawPressureSP" VarB="DO RxPDO-Map^Pressure setpoint"/>
 				<Link VarA="PlcTask Outputs^MAIN.fbVCN590.o_stGenCtrlSP" VarB="DO RxPDO-Map^General control setpoint"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL3174-0002)">
+				<Link VarA="PlcTask Inputs^MAIN.fbIMG401.i_iPRESS_R" VarB="AI Standard Channel 1^Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL2624)">
+				<Link VarA="PlcTask Outputs^MAIN.fbIMG401.q_xHV_DIS" VarB="Channel 1^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1084)">
+				<Link VarA="PlcTask Inputs^MAIN.fbIMG401.i_xHV_ON" VarB="Channel 1^Input"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
