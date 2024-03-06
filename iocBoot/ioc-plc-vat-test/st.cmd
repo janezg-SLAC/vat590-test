@@ -1,11 +1,11 @@
-#!c:/Repos/ads-ioc/R0.6.1///bin/rhel7-x86_64/adsIoc
+#!/reg/g/pcds/epics/ioc/common/ads-ioc/R0.6.1/bin/rhel7-x86_64/adsIoc
 ################### AUTO-GENERATED DO NOT EDIT ###################
 #
 #         Project: vat590-test.tsproj
 #        PLC name: plc_vat_test (plc_vat_test Instance)
-# Generated using: pytmc 2.15.2.dev0+g73bd2d9.d20230727
-# Project version: unknown
-#    Project hash: unknown
+# Generated using: pytmc 2.16.0
+# Project version: e918710
+#    Project hash: e918710d5289778020e454d258705b45589dcb7d
 #     PLC IP/host: 172.21.132.149
 #      PLC Net ID: 172.21.132.149.1.1
 # ** DEVELOPMENT MODE IOC **
@@ -28,7 +28,7 @@
 
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
-epicsEnvSet("ENGINEER", "" )
+epicsEnvSet("ENGINEER", "janezg" )
 epicsEnvSet("LOCATION", "PLC:plc_vat_test" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
@@ -48,7 +48,7 @@ epicsEnvSet("ADS_TIMEOUT_MS",   "1000")
 epicsEnvSet("ADS_TIME_SOURCE",  "0")
 
 # Add a route to the PLC automatically:
-system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.132.149 ^172.*$")
+system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.132.149 ^172.*")
 
 # adsAsynPortDriverConfigure(portName, ipaddr, amsaddr, amsport,
 #    asynParamTableSize, priority, noAutoConnect, defaultSampleTimeMS,
@@ -86,7 +86,7 @@ dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:plc_vat_test,IDX=1")
 dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:plc_vat_test")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:plc_vat_test,PROJECT=vat590-test.tsproj,HASH=unknown,VERSION=unknown,PYTMC=2.15.2.dev0+g73bd2d9.d20230727,PLC_HOST=172.21.132.149")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:plc_vat_test,PROJECT=vat590-test.tsproj,HASH=e918710,VERSION=e918710,PYTMC=2.16.0,PLC_HOST=172.21.132.149")
 
 #   LCLS General: * -> * (SLAC)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:plc_vat_test,DEPENDENCY=LCLS_General,VERSION=*,VENDOR=SLAC")
