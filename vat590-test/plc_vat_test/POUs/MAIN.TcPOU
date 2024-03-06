@@ -8,10 +8,6 @@ VAR
       pv: VCN:TEST:01
     '}
 	fbVCN590 : FB_VCN_VAT590; // Variable leak valve VAT590 function block
-    {attribute 'pytmc' := '
-      pv: GHC:TEST:03
-    '}
-	fbIMG401 : FB_IMG401;
 	
 	stVG : ST_VG;
     {attribute 'pytmc' := '
@@ -23,6 +19,12 @@ VAR
       pv: GCC:TEST:02
     '}
 	fbMX7M : FB_MX7M;
+	
+    {attribute 'pytmc' := '
+      pv: GHC:TEST:03
+    '}
+	fbIMG401 : FB_IMG401;
+	
 	rPiraniPressure : REAL := 1E-4;
 	bPressOK : BOOL := TRUE;
 END_VAR	
